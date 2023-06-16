@@ -24,7 +24,7 @@ public class Kurir {
     public Kurir(String nama, String id_kurir, double gaji_pokok) {
         if(nama.isEmpty())
             throw new IllegalArgumentException("Nama tidak boleh kosong");
-        if(!id_kurir.startsWith("KU")&& id_kurir.length()!=6){
+        if(!id_kurir.startsWith("KU")|| id_kurir.length()!=6){
             throw new IllegalArgumentException("ID Kurir Harus 6 digit dan diawali dengan KUXXXX (Contoh KU1234)");
         }
         if(gaji_pokok<0){
