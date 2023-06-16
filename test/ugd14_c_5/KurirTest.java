@@ -59,4 +59,22 @@ public class KurirTest extends junit.framework.TestCase{
         assertNotNull(kurir);
     }
     
+    @Test
+    public void testHitungPajak1(){
+        Kurir kurir = new Kurir("nama", "KU1111", 1000);
+        double result = kurir.hitungPajak(-1);
+        double expResult = 1000;
+         
+        assertTrue(expResult == result);
+    }
+    
+    @Test
+    public void testHitungPajak2(){
+        Kurir kurir = new Kurir("nama", "KU1111", 1000);
+        double result = kurir.hitungPajak(10);
+        double expResult = 100;
+        
+        assertTrue(expResult == result);
+    }
+    
 }
