@@ -38,4 +38,31 @@ public class Kurir {
     public double getGajiPokok(){
         return gaji_pokok;
     }
+    
+    public double hitungTotalGaji(double tunjangan){
+        if(tunjangan<0)
+            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+        return gaji_pokok+hitungBonus(2, 30000)+tunjangan+hitungPajak(53);
+        
+    }
+    
+    public double hitungBonus(double jumlahPaket, double biayaPerPaket){
+        if(jumlahPaket<0)
+            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+        if(biayaPerPaket<0)
+            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+        return jumlahPaket*biayaPerPaket*10.0/100.0;
+    }
+    
+    public double hitungPajak(double presentase){
+        if(presentase<0)
+            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+        return gaji_pokok*presentase/100.0;
+    }
+    
+    public String tampil(){
+        //NPM 1 (210711015)
+        //NMP 2 (210711023)
+        return "Kurir dengan "+nama+" id kurir "+id_kurir+" memiliki Gaji "+gaji_pokok;
+    }
 }
