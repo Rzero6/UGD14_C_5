@@ -42,7 +42,7 @@ public class Kurir {
     public double hitungTotalGaji(double tunjangan){
         if(tunjangan<0)
             throw new IllegalArgumentException("Tunjangan Tidak boleh kurang dari 0");
-        return gaji_pokok+hitungBonus(2, 30000)+tunjangan+hitungPajak(53);
+        return gaji_pokok+hitungBonus(1, 10)+tunjangan-hitungPajak(53);//Pajak = 5300 Bonus=1
         
     }
     

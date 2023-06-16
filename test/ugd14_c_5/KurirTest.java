@@ -6,14 +6,16 @@ package ugd14_c_5;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import org.junit.runners.Suite;
+import org.junit.runner.RunWith;
+@RunWith(Suite.class)
+@Suite.SuiteClasses({})
 
 public class KurirTest extends junit.framework.TestCase{
     
     public KurirTest() {
     }
-
-
+    
     @Test
     public void test1() {
         System.out.println("Semua Nilai Atribut Benar");
@@ -59,6 +61,47 @@ public class KurirTest extends junit.framework.TestCase{
         assertNotNull(kurir);
     }
     
+    
+    @Test
+    public void testHitungTotalGaji() {
+        Kurir kurir = new Kurir("Lala", "KU1234", 10000);
+        double result = kurir.hitungTotalGaji(-1);
+        double expResult = 10000+1+1000-5300;
+        assertFalse(result!=expResult);
+    }
+    @Test
+    public void testHitungTotalGaji2() {
+        Kurir kurir = new Kurir("Lala", "KU1234", 10000);
+        double result = kurir.hitungTotalGaji(1000);
+        double expResult = 10000+1+1000-5300;
+        assertFalse(result!=expResult);
+    }
+
+    /**
+     * Test of hitungBonus method, of class Kurir.
+     */
+    @Test
+    public void testHitungBonus() {
+        Kurir kurir = new Kurir("Lala", "KU1234", 10000);
+        double result = kurir.hitungBonus(1, -10);
+        double expResult = 1000;
+        assertFalse(result!=expResult);
+    }
+    @Test
+    public void testHitungBonus2() {
+        Kurir kurir = new Kurir("Lala", "KU1234", 10000);
+        double result = kurir.hitungBonus(-1, 1);
+        double expResult = 1000;
+        assertFalse(result!=expResult);
+    }
+    @Test
+    public void testHitungBonus3() {
+        Kurir kurir = new Kurir("Lala", "KU1234", 10000);
+        double result = kurir.hitungBonus(1, 10.0);
+        double expResult = 1.0;
+        assertEquals(expResult,result);
+    }
+
     @Test
     public void testHitungPajak1(){
         Kurir kurir = new Kurir("nama", "KU1111", 1000);
@@ -76,5 +119,11 @@ public class KurirTest extends junit.framework.TestCase{
         
         assertTrue(expResult == result);
     }
-    
+    @Test
+    public void testTampil(){
+        Kurir kurir = new Kurir("nama", "KU1111", 1000);
+        String result = kurir.tampil();
+        String expResult = "Kurir dengan nama id kurir KU1111 memiliki Gaji 1000.0";
+        assertEquals(expResult,result);
+    }
 }
