@@ -25,10 +25,10 @@ public class Kurir {
         if(nama.isEmpty())
             throw new IllegalArgumentException("Nama tidak boleh kosong");
         if(!id_kurir.startsWith("KU")&& id_kurir.length()!=6){
-            throw new IllegalArgumentException("Harus 6 digit dan diawali dengan KUXXXX (Contoh KU1234)");
+            throw new IllegalArgumentException("ID Kurir Harus 6 digit dan diawali dengan KUXXXX (Contoh KU1234)");
         }
         if(gaji_pokok<0){
-            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+            throw new IllegalArgumentException("Gaji Pokok Tidak boleh kurang dari 0");
         }
         this.nama = nama;
         this.id_kurir = id_kurir;
@@ -41,22 +41,22 @@ public class Kurir {
     
     public double hitungTotalGaji(double tunjangan){
         if(tunjangan<0)
-            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+            throw new IllegalArgumentException("Tunjangan Tidak boleh kurang dari 0");
         return gaji_pokok+hitungBonus(2, 30000)+tunjangan+hitungPajak(53);
         
     }
     
     public double hitungBonus(double jumlahPaket, double biayaPerPaket){
         if(jumlahPaket<0)
-            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+            throw new IllegalArgumentException("Jumlah Paket Tidak boleh kurang dari 0");
         if(biayaPerPaket<0)
-            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+            throw new IllegalArgumentException("Biaya per Paket Tidak boleh kurang dari 0");
         return jumlahPaket*biayaPerPaket*10.0/100.0;
     }
     
     public double hitungPajak(double presentase){
         if(presentase<0)
-            throw new IllegalArgumentException("Tidak boleh kurang dari 0");
+            throw new IllegalArgumentException("Persentase Tidak boleh kurang dari 0");
         return gaji_pokok*presentase/100.0;
     }
     
